@@ -14,7 +14,7 @@ class UserTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function test_a_user_can_be_added()
     {
         $user = User::factory()->create();
 
