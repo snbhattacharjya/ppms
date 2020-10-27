@@ -23,7 +23,7 @@ class QualificationFactory extends Factory
     {
         return [
             "code" => $this->faker->unique()->randomNumber(2),
-            "name" => $this->faker->jobTitle,
+            "name" => substr($this->faker->jobTitle, 0, 20)
         ];
     }
 }
