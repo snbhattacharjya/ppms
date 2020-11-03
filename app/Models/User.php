@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\District;
 
 class User extends Authenticatable
 {
@@ -45,4 +46,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Scope::class);
     }
+
+    public function resource()
+    {
+        $scope_name = 'App\\Models\\'.$this->scope->name;
+
+        $resource = new $scope_name();
+
+        return $resource::find($this->resource_id);
+    }
+
 }
