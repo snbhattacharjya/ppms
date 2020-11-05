@@ -30,7 +30,7 @@ class UserFactory extends Factory
             'designation'        => $this->faker->jobTitle,
             'email'              => $this->faker->unique()->safeEmail,
             'email_verified_at'  => now(),
-            'mobile'             => substr($this->faker->unique()->e164PhoneNumber,2),
+            'mobile'             => substr($this->faker->unique()->e164PhoneNumber,2,10),
             'mobile_verified_at' => now(),
             'scope_id'           => Scope::factory(),
             'resource_id'        => District::factory(),
