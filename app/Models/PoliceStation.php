@@ -13,4 +13,9 @@ class PoliceStation extends Model
     {
         return $this->belongsTo(Subdivision::class);
     }
+
+    public function offices()
+    {
+        return $this->hasMany(Office::class);
+    }
 }

@@ -18,4 +18,9 @@ class District extends Model
     {
         return $this->hasMany(Subdivision::class);
     }
+
+    public function offices()
+    {
+        return $this->hasMany(Office::class);
+    }
 }

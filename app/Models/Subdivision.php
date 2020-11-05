@@ -23,4 +23,9 @@ class Subdivision extends Model
     {
         return $this->hasMany(PoliceStation::class);
     }
+
+    public function offices()
+    {
+        return $this->hasMany(Office::class);
+    }
 }

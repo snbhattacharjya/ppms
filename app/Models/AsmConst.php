@@ -18,4 +18,9 @@ class AsmConst extends Model
     {
         return $this->belongsTo(District::class);
     }
+
+    public function offices()
+    {
+        return $this->hasMany(Office::class);
+    }
 }
