@@ -23,4 +23,9 @@ class Employee extends Model
     {
         return $this->belongsTo(Qualification::class);
     }
+
+    public function elector()
+    {
+        return $this->hasOne(Elector::class);
+    }
 }

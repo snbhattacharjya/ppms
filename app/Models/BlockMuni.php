@@ -18,4 +18,19 @@ class BlockMuni extends Model
     {
         return $this->hasMany(Office::class);
     }
+
+    public function temp_electors()
+    {
+        return $this->hasMany(Elector::class, 'temp_block_muni_id');
+    }
+    
+    public function perm_electors()
+    {
+        return $this->hasMany(Elector::class, 'perm_block_muni_id');
+    }
+
+    public function duty_electors()
+    {
+        return $this->hasMany(Elector::class, 'duty_block_muni_id');
+    }
 }
