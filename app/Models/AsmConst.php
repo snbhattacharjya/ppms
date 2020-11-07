@@ -39,4 +39,9 @@ class AsmConst extends Model
         return $this->hasMany(Elector::class, 'duty_asm_const_id');
     }
 
+    public function constituency()
+    {
+        return $this->morphOne(Constituency::class, 'constituent');
+    }
+
 }

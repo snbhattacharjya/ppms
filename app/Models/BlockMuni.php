@@ -33,4 +33,9 @@ class BlockMuni extends Model
     {
         return $this->hasMany(Elector::class, 'duty_block_muni_id');
     }
+
+    public function constituency()
+    {
+        return $this->morphOne(Constituency::class, 'constituent');
+    }
 }
