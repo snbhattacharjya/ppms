@@ -23,4 +23,9 @@ class State extends Model
     {
         return $this->hasMany(Contact::class);
     }
+
+    public function elections()
+    {
+        return $this->hasMany(Election::class);
+    }
 }
