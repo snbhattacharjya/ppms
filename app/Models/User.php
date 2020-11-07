@@ -56,4 +56,14 @@ class User extends Authenticatable
         return $resource::find($this->resource_id);
     }
 
+    public function applied_duty_exemptions()
+    {
+        return $this->hasMany(DutyExemption::class,'applied_by');
+    }
+
+    public function processed_duty_exemptions()
+    {
+        return $this->hasMany(DutyExemption::class, 'processed_by');
+    }
+
 }
