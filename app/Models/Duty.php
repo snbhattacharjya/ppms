@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DutyType extends Model
+class Duty extends Model
 {
     use HasFactory;
 
-    public function duties()
+    public function duty_type()
     {
-        return $this->hasMany(Duty::class);
+        return $this->belongsTo(DutyType::class);
     }
 }
