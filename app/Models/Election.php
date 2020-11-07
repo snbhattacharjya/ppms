@@ -13,4 +13,9 @@ class Election extends Model
     {
         return $this->belongsTo(State::class);
     }
+
+    public function phases()
+    {
+        return $this->hasMany(ElectionPhase::class);
+    }
 }
