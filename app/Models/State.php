@@ -18,4 +18,9 @@ class State extends Model
     {
         return $this->hasMany(ParlConst::class);
     }
+
+    public function contacts()
+    {
+        return $this->hasMany(Contact::class);
+    }
 }
