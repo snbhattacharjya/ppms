@@ -38,4 +38,9 @@ class Employee extends Model
     {
         return $this->hasOne(Contact::class);
     }
+
+    public function election_officers()
+    {
+        return $this->hasMany(ElectionOfficer::class);
+    }
 }

@@ -13,4 +13,9 @@ class ConstituencyZone extends Model
     {
         return $this->belongsTo(ElectionPhase::class);
     }
+
+    public function election_officers()
+    {
+        return $this->hasMany(ElectionOfficer::class);
+    }
 }
