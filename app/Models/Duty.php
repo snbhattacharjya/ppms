@@ -13,4 +13,9 @@ class Duty extends Model
     {
         return $this->belongsTo(DutyType::class);
     }
+
+    public function election_officers()
+    {
+        return $this->hasMany(ElectionOfficer::class);
+    }
 }
