@@ -38,4 +38,9 @@ class ElectionOfficer extends Model
     {
         return $this->belongsTo(DutyExemption::class);
     }
+
+    public function trainees()
+    {
+        return $this->hasMany(Trainee::class);
+    }
 }

@@ -23,4 +23,9 @@ class TrainingVenue extends Model
     {
         return $this->belongsTo(BlockMuni::class);
     }
+
+    public function training_schedules()
+    {
+        return $this->hasMany(TrainingSchedule::class);
+    }
 }
