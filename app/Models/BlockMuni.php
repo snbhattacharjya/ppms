@@ -38,4 +38,9 @@ class BlockMuni extends Model
     {
         return $this->morphOne(Constituency::class, 'constituent');
     }
+
+    public function training_venues()
+    {
+        return $this->hasMany(TrainingVenue::class);
+    }
 }

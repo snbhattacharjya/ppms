@@ -28,4 +28,9 @@ class Subdivision extends Model
     {
         return $this->hasMany(Office::class);
     }
+
+    public function training_venues()
+    {
+        return $this->hasMany(TrainingVenue::class);
+    }
 }
