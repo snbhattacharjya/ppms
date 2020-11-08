@@ -23,4 +23,9 @@ class Election extends Model
     {
         return $this->hasMany(ElectionOfficer::class);
     }
+
+    public function trainings()
+    {
+        return $this->hasMany(Training::class);
+    }
 }
