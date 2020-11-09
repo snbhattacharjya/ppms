@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Constituency extends Model
+class PollingStation extends Model
 {
     use HasFactory;
 
-    public function constituent()
+    public function election()
     {
-        return $this->morphTo();
+        return $this->belongsTo(Election::class);
     }
 
-    public function polling_stations()
+    public function constituency()
     {
-        return $this->hasMany(PollingStation::class);
+        return $this->belongsTo(Constituency::class);
     }
 
     public function deployed_groups()
