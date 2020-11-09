@@ -7,6 +7,7 @@ use App\Models\Scope;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class UserFactory extends Factory
 {
@@ -34,7 +35,7 @@ class UserFactory extends Factory
             'mobile_verified_at' => now(),
             'scope_id'           => Scope::factory(),
             'resource_id'        => District::factory(),
-            'password'           => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password'           => Hash::make(env('DEFAULT_PASSWORD', 'paSSw0rd')), // Use Hash function to generate password hash as it varies depending on the hashing configuration on the host
             'remember_token'     => Str::random(10),
         ];
     }
