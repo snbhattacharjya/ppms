@@ -13,4 +13,9 @@ class Constituency extends Model
     {
         return $this->morphTo();
     }
+
+    public function polling_stations()
+    {
+        return $this->hasMany(PollingStation::class);
+    }
 }

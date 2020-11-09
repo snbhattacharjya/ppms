@@ -28,4 +28,9 @@ class Election extends Model
     {
         return $this->hasMany(Training::class);
     }
+
+    public function polling_stations()
+    {
+        return $this->hasMany(PollingStation::class);
+    }
 }
