@@ -18,4 +18,9 @@ class Constituency extends Model
     {
         return $this->hasMany(PollingStation::class);
     }
+
+    public function deployed_groups()
+    {
+        return $this->hasMany(DeployedGroup::class);
+    }
 }

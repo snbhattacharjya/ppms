@@ -43,4 +43,9 @@ class ElectionOfficer extends Model
     {
         return $this->hasMany(Trainee::class);
     }
+
+    public function deployed_groups()
+    {
+        return $this->hasMany(DeployedGroup::class);
+    }
 }
