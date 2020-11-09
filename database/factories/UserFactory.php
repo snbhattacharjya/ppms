@@ -33,8 +33,6 @@ class UserFactory extends Factory
             'email_verified_at'  => now(),
             'mobile'             => substr($this->faker->unique()->e164PhoneNumber,2,10),
             'mobile_verified_at' => now(),
-            'scope_id'           => Scope::factory(),
-            'resource_id'        => District::factory(),
             'password'           => Hash::make(env('DEFAULT_PASSWORD', 'paSSw0rd')), // Use Hash function to generate password hash as it varies depending on the hashing configuration on the host
             'remember_token'     => Str::random(10),
         ];

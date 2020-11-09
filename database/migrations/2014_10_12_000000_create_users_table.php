@@ -22,9 +22,8 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('mobile',10);
             $table->timestamp('mobile_verified_at')->nullable();
-            $table->unsignedBigInteger('scope_id');
-            $table->unsignedBigInteger('resource_id');
             $table->string('password');
+            $table->boolean('is_admin')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

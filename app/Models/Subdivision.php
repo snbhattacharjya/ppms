@@ -33,4 +33,9 @@ class Subdivision extends Model
     {
         return $this->hasMany(TrainingVenue::class);
     }
+
+    public function users()
+    {
+        return $this->morphMany(UserResource::class, 'resource');
+    }
 }

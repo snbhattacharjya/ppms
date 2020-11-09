@@ -42,18 +42,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function scope()
-    {
-        return $this->belongsTo(Scope::class);
-    }
-
     public function resource()
     {
-        $scope_name = 'App\\Models\\'.$this->scope->name;
-
-        $resource = new $scope_name();
-
-        return $resource::find($this->resource_id);
+        return $this->hasOne(UserResource::class);
     }
 
     public function applied_duty_exemptions()

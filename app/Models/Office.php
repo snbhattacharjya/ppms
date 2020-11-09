@@ -48,4 +48,9 @@ class Office extends Model
     {
         return $this->hasMany(Employee::class);
     }
+
+    public function users()
+    {
+        return $this->morphMany(UserResource::class, 'resource');
+    }
 }
