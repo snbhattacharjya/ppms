@@ -16,7 +16,7 @@ class CreateQualificationsTable extends Migration
         Schema::create('qualifications', function (Blueprint $table) {
             $table->id();
             $table->string("code", 2)->unique();
-            $table->string("name", 20);
+            $table->string("name");
             $table->timestamps();
         });
     }
