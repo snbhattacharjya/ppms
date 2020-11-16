@@ -14,9 +14,9 @@ class StateSeeder extends Seeder
      */
     public function run()
     {
-        State::factory([
+        State::factory()->create([
             "code" => "19",
             "name"     => "West Bengal",
-        ])->create();
+        ]);
     }
 }
