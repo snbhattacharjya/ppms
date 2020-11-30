@@ -13,8 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        $this->call([
+            $this->call([
             StateSeeder::class,
             DistrictSeeder::class,
             SubdivisionSeeder::class,
@@ -25,7 +24,8 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             InstituteSeeder::class,
             QualificationSeeder::class,
-            ElectionSeeder::class
+            ElectionSeeder::class,
+            UserSeeder::class
         ]);
     }
 }
