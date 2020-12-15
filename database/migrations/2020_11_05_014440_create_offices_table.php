@@ -15,6 +15,7 @@ class CreateOfficesTable extends Migration
     {
         Schema::create('offices', function (Blueprint $table) {
             $table->id();
+            $table->string('code')->nullable();
             $table->string('name');
             $table->string('hod_designation');
             $table->string('address');

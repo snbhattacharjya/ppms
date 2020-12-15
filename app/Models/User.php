@@ -42,7 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function resource()
+    public function attached_to()
     {
         return $this->hasOne(UserResource::class);
     }

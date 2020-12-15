@@ -35,7 +35,9 @@ class OfficeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Office::create($request->validate(Office::$rules));
+
+        return redirect('office.index');
     }
 
     /**

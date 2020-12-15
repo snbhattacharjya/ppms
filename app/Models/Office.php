@@ -9,6 +9,28 @@ class Office extends Model
 {
     use HasFactory;
 
+    public static $rules = [
+        'name'              => 'required|max:100|min:3',
+        'hod_designation'   => 'required|max:50|min:3',
+        'address'           => 'required|max:100:min:3',
+        'post_office'       => 'required|max:30|min:3',
+        'pincode'           => 'required|digits:6',
+        'district_id'       => 'required',
+        'subdivision_id'    => 'required',
+        'block_muni_id'     => 'required',
+        'police_station_id' => 'required',
+        'asm_const_id'      => 'required',
+        'category_id'       => 'required',
+        'institute_id'      => 'required',
+        'phone'             => 'required|numeric',
+        'fax'               => 'required|numeric',
+        'email'             => 'required|email',
+        'hod_mobile'        => 'required|digits:10',
+        'total_staff'       => 'required|gt:0|lt:1000',
+        'male_staff'        => 'required|gt:0|lt:1000',
+        'female_staff'      => 'required|gt:0|lt:1000'
+    ];
+
     public function district()
     {
         return $this->belongsTo(District::class);
@@ -49,8 +71,8 @@ class Office extends Model
         return $this->hasMany(Employee::class);
     }
 
-    public function users()
+    public function user()
     {
-        return $this->morphMany(UserResource::class, 'resource');
+        return $this->morphOne(UserResource::class, 'resource');
     }
 }
