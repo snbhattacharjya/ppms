@@ -32,7 +32,7 @@
             <!-- END Open Search Section -->
 
             <!-- Search Form (visible on larger screens) -->
-            <form class="d-none d-sm-inline-block" action="/dashboard" method="POST">
+            <form class="d-none d-sm-inline-block" action="/home" method="GET">
                 @csrf
                 <div class="input-group input-group-sm">
                     <input type="text" class="form-control form-control-alt" placeholder="Search.." id="page-header-search-input2" name="page-header-search-input2">
@@ -53,7 +53,7 @@
             <div class="dropdown d-inline-block ml-2">
                 <button type="button" class="btn btn-sm btn-dual" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded" src="{{ asset('media/avatars/avatar10.jpg') }}" alt="Header Avatar" style="width: 18px;">
-                    <span class="d-none d-sm-inline-block ml-1">Adam</span>
+                    <span class="d-none d-sm-inline-block ml-1">{{ Auth::user()->name }}</span>
                     <i class="fa fa-fw fa-angle-down d-none d-sm-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right p-0 border-0 font-size-sm" aria-labelledby="page-header-user-dropdown">
