@@ -18,4 +18,10 @@ class UserResource extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function resource_model()
+    {
+        $resource_model = explode("\\", $this->resource_type);
+        return $resource_model[2];
+    }
 }
