@@ -17,6 +17,7 @@ class CreateOfficesTable extends Migration
             $table->id();
             $table->string('code')->nullable();
             $table->string('name');
+            $table->string('identifier')->nullable();
             $table->string('hod_designation');
             $table->string('address');
             $table->string('post_office');
