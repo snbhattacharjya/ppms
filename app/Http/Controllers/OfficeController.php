@@ -14,7 +14,7 @@ class OfficeController extends Controller
      */
     public function index()
     {
-        //
+        return view('Office.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class OfficeController extends Controller
      */
     public function create()
     {
-        //
+        return view('Office.create');
     }
 
     /**
