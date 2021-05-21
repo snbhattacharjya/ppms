@@ -9,6 +9,13 @@ class Office extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
     public static $rules = [
         'name'              => 'required|max:100|min:3',
         'hod_designation'   => 'required|max:50|min:3',

@@ -33,4 +33,4 @@ Route::post('/office', 'OfficeController@store')->name('office.store')->middlewa
 Route::get('/office/{office}', 'OfficeController@show')->name('office.show')->middleware('auth');
 Route::get('/office/{office}/edit', 'OfficeController@edit')->name('office.edit')->middleware('auth');
 Route::put('/office/{office}', 'OfficeController@update')->name('office.update')->middleware('auth');
-Route::delete('/office/{office}', 'OfficeController@delete')->name('office.delete')->middleware('auth');
+Route::delete('/office/{office}', 'OfficeController@destroy')->name('office.delete')->middleware('auth');

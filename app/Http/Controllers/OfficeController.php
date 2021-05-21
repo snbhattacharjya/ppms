@@ -37,7 +37,7 @@ class OfficeController extends Controller
     {
         Office::create($request->validate(Office::$rules));
 
-        return redirect('office.index');
+        return redirect(route('office.index'));
     }
 
     /**
@@ -71,7 +71,10 @@ class OfficeController extends Controller
      */
     public function update(Request $request, Office $office)
     {
-        //
+
+        $office->update($request->validate(Office::$rules));
+        
+        return redirect(route('office.index'));
     }
 
     /**
@@ -82,6 +85,9 @@ class OfficeController extends Controller
      */
     public function destroy(Office $office)
     {
-        //
+        $office->delete();
+
+        return redirect(route('office.index'));
+
     }
 }

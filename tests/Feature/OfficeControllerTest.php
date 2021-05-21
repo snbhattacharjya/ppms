@@ -2,7 +2,15 @@
 
 namespace Tests\Feature;
 
+use App\Models\AsmConst;
+use App\Models\BlockMuni;
+use App\Models\Category;
+use App\Models\District;
+use App\Models\Institute;
 use App\Models\User;
+use App\Models\Office;
+use App\Models\PoliceStation;
+use App\Models\Subdivision;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Str;
@@ -28,12 +36,83 @@ class OfficeControllerTest extends TestCase
      * @dataProvider numberRangeFormValidators
      * @return void
      */
-    public function test_office_validation_errors($input, $value)
+    public function test_office_store_for_validation_errors($input, $value)
     {
         $user = User::factory()->create();
 
         $this->actingAs($user)->post(route('office.store', [$input => $value]))
                 ->assertSessionHasErrors($input);
+    }
+
+    public function test_office_store_for_persistence()
+    {
+        $this->refreshDatabase();
+        $user = User::factory()->create();
+
+        $request = Office::factory()->make()->toArray();
+
+        $response = $this->actingAs($user)->post('/office', $request);
+        
+        //Test for Persistence
+        $this->assertCount(1, Office::all());
+        //Test for Redirection
+        $response->assertRedirect(route('office.index'));
+    }
+
+    /**
+     * Office Model Validation Rest.
+     * @dataProvider requiredFormValidators
+     * @dataProvider maxLengthFormValidators
+     * @dataProvider numericFormValidators
+     * @dataProvider emailFormValidators
+     * @dataProvider digitsFormValidators
+     * @dataProvider numberRangeFormValidators
+     * @return void
+     */
+    public function test_office_update_for_validation_errors($input, $value)
+    {
+        $user = User::factory()->create();
+
+        $office = Office::factory()->create();
+
+        $this->actingAs($user)->put('/office/'.$office->id, [$input => $value])
+                ->assertSessionHasErrors($input);
+    }
+
+    public function test_office_update_for_persistence()
+    {
+
+        $this->refreshDatabase();
+
+        $user = User::factory()->create();
+
+        $office = Office::factory()->create();
+
+        $request = Office::factory()->make()->toArray();
+
+        $response = $this->actingAs($user)->put('/office/'.$office->id, $request);
+        
+        //Test for Persistence
+        $this->assertEquals($request['name'], Office::first()->name);
+        //Test for Redirection
+        $response->assertRedirect(route('office.index'));
+    }
+
+    public function test_office_destroy_for_delete()
+    {
+
+        $this->refreshDatabase();
+
+        $user = User::factory()->create();
+
+        $office = Office::factory()->create();
+
+        $response = $this->actingAs($user)->delete('/office/'.$office->id);
+        
+        //Test for Delete
+        $this->assertCount(0, Office::all());
+        //Test for Redirection
+        $response->assertRedirect(route('office.index'));
     }
 
     public function requiredFormValidators()
