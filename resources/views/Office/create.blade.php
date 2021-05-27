@@ -27,7 +27,20 @@
     <div class="content">
         <!-- jQuery Validation (.js-validation class is initialized in js/pages/be_forms_validation.min.js which was auto compiled from _es6/pages/be_forms_validation.js) -->
         <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
-        <form class="js-validation" action="be_forms_validation.html" method="POST">
+        <form class="js-validation" action="/office" method="POST" autocomplete="off">
+            @csrf
+            @if ($errors->any())
+                <div class="alert alert-danger alert-dismissable" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="block">
                 <div class="block-header">
                     <h3 class="block-title">New Office Form</h3>
@@ -39,7 +52,9 @@
                         <div class="row items-push">
                             <div class="col-lg-4">
                                 <p class="font-size-sm text-muted">
-                                    Username, email and password validation made easy for your login/register forms
+                                    This section captures the Name of the Office, Identifier related to the office; consider this to be anything like DDO Code, 
+                                    IFSC Code or DISE that uniquely identifies the office other than its name. Then we have the designation for the Head of the Office. 
+                                    The head of office designation is important as all the communications for the office are issued for the mentioned designation.
                                 </p>
                             </div>
                             <div class="col-lg-8 col-xl-5">
@@ -68,18 +83,6 @@
                                 </p>
                             </div>
                             <div class="col-lg-8 col-xl-5">
-                                <div class="form-group">
-                                    <label for="district_id">District <span class="text-danger">*</span></label>
-                                    <select class="form-control" id="district_id" name="district_id">
-                                        
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="subdivision_id">Subdivision <span class="text-danger">*</span></label>
-                                    <select class="form-control" id="subdivision_id" name="subdivision_id">
-                                        
-                                    </select>
-                                </div>
                                 <div class="form-group">
                                     <label for="block_muni_id">Block or Municipality <span class="text-danger">*</span></label>
                                     <select class="form-control" id="block_muni_id" name="block_muni_id">
@@ -210,5 +213,15 @@
         <!-- jQuery Validation -->
     </div>
     <!-- END Page Content -->
+
+@endsection
+
+@section('js_page')
+
+<!-- Page JS Plugins -->
+<script src="{{ asset('js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+
+<!-- Page JS Code -->
+<script src="{{ asset('js/pages/office.js') }}"></script>
 
 @endsection

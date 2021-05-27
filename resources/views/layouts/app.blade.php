@@ -101,9 +101,10 @@
         <!-- PPMS UI Core JS -->
         <script src="{{ asset('js/ppmsui.js') }}"></script>
 
+        @yield('js_page')
+
         <!-- Laravel Scaffolding JS -->
         <script src="{{ asset('js/app.js') }}"></script>
 
-        @yield('js_after')
 </body>
 </html>
